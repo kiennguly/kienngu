@@ -1,20 +1,37 @@
-// ConsoleApplication8.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+﻿// bài tập về lowerbound và upperbound của thầy kiên
+//kiennguly
 
 #include <iostream>
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int n, x;
+    cin >> n >> x;
+    int a[1000];
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    auto kien = lower_bound(a, a + n, x);
+    if (kien != a + n) {
+        cout << kien - a;
+    }
+    else {
+        cout << "-1\n";
+    }
+    auto khoi = upper_bound(a, a + n, x);
+    if (khoi != a + n) {
+        cout << khoi - a;
+    }
+    else {
+        cout << "-1\n";
+    }
+    cout << khoi - kien;
+
+
+
+
+    return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
